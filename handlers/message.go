@@ -46,6 +46,7 @@ func OnMessage(root *mongo.Client, conf *utils.Config, session *discordgo.Sessio
 
 	if entity := prepare(info, memberDoc, conf, authorID, ev); entity != nil {
 		res := strings.Split(ev.Message.Content, " ")
+		res = utils.RemoveEmptyStringsFromSlice(res)
 
 		if len(res) < 2 {
 			return

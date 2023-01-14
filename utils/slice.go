@@ -9,3 +9,7 @@ func Has[T comparable](arr []T, val T) (T, bool) {
 
 	return val, false
 }
+
+func Remove[Type interface{}](s []Type, i int) []Type {
+	return append(s[:i], s[i+1:]...)
+}
